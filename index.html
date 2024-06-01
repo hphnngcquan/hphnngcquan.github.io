@@ -1,6 +1,7 @@
 <html lang="en-US">
 
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +21,7 @@
   <meta name="twitter:card" content="summary">
   <meta property="twitter:title" content="Introduction">
   <script type="application/ld+json">
+  
 {"@context":"https://schema.org","@type":"WebSite","description":"Researcher","headline":"Introduction","name":"Ngoc-Quan Ha-Phan","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://hphnngcquan.github.io/images/quan.jpg"}},"url":"https://hphnngcquan.github.io/"}</script>
   <!-- End Jekyll SEO tag -->
 
@@ -174,6 +176,29 @@
 
   </div>
   <script src="./scale.fix.js"></script>
+
+    <button id="export-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+      </svg>
+      Export
+    </button>
+    <script>
+      document.getElementById('export-btn').onclick = () => {
+        const el = document.getElementsByTagName('body')[0].cloneNode(true);
+        el.querySelector('#export-btn').remove();
+
+        const opt = {
+          margin: 1,
+          filename: 'NgocQuanHaPhan.pdf',
+          image: {type: 'png'},
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        }
+        
+        html2pdf().set(opt).from(el).save();
+      }
+    </script>
 
 
 </body>
