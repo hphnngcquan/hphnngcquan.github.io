@@ -630,3 +630,25 @@ screen and (max-width: 480px) {
         color: #444
     }
 }
+
+#export-btn {
+    display: inline-flex;
+    align-items: center;
+    color: rgb(17 24 39);
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-block: .625rem;
+    padding-inline: 1.25rem;
+    background-color: rgb(255 255 255);
+    border: 1px solid rgb(229, 231, 235);
+    -webkit-appearance: button;
+    background-image: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    & svg {
+      width: .875rem;
+      height: .875rem;
+      margin-inline-end: .5rem;
+    }
+  }
